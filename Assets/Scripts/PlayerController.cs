@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -45,6 +43,13 @@ public class PlayerController : MonoBehaviour
         controller.Move(moveVector * Time.deltaTime * _turnSpeed);
         moveVector = Vector3.zero;
         moveVector.x = Input.GetAxisRaw("Horizontal") * _turnSpeed;
+        if (Input.GetMouseButton(0))
+        {
+            if (Input.mousePosition.x > Screen.width / 2)
+                moveVector.x = _turnSpeed;
+            else
+                moveVector.x = -_turnSpeed;
+        }
         moveVector.y = verticalVelocity;
         moveVector.z = _speed;
     }

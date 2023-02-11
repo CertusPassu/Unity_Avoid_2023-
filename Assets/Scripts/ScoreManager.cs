@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
 public class ScoreManager : MonoBehaviour
 {
@@ -37,9 +34,14 @@ public class ScoreManager : MonoBehaviour
 
     private void LevelUp()
     {
-        scoreToNextLevel *= 2;
-        difficultyLevel++;
-        GetComponent<PlayerController>().SetSpeed(difficultyLevel);
+        if (difficultyLevel <= maxDifficultyLevel)
+        {
+            scoreToNextLevel *= 2;
+            difficultyLevel++;
+            GetComponent<PlayerController>().SetSpeed(difficultyLevel);
+            //Debug.Log(difficultyLevel);
+        }
+        return;
     }
     public void OnDie()
     {

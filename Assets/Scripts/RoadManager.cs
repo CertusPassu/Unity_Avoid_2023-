@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -19,7 +18,7 @@ public class RoadManager : MonoBehaviour
         playerTrasform = GameObject.FindGameObjectWithTag("Player").transform;
         for (int i = 0; i < numRoadsOnScreen; i++)
         {
-            if (i < 4)
+            if (i < 2)
                 SpawnRoad(0);
             else
                 SpawnRoad();
