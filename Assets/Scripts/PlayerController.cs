@@ -31,7 +31,11 @@ public class PlayerController : MonoBehaviour
     private void Move()
     {
         if (isDead)
+        {
+            gameObject.SetActive(false);
             return;
+        }
+            
         if (controller.isGrounded)
         {
             verticalVelocity = 0f;
